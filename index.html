@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body{
+            background-color:#013062;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 150px;
+        }
+        .container{
+            background-color: brown;
+            width: 400px;
+            height: auto;
+            padding: 10px;
+        }
+        h1{
+            text-align: center;
+            text-transform: capitalize;
+        }
+        .box1{
+            background-color: green;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            padding-bottom: 15px;
+            width: 350px;
+            height:auto;
+        }
+        label{
+            display: block;
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: underline;
+            margin-bottom: 5px;
+        }
+        .inp{
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+            padding: 8px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+       
+        </style>
+</head>
+<body>
+    <div class="container">
+        <h1>temperature converter</h1>
+          <div class="box1">
+              <label>celsius</label>
+              <input type="number" class="inp" id="input1" value = "0">
+          </div>
+          <div  class="box1">
+            <label>fahrenheit</label>
+            <input type="number" class="inp" id="input2" value = "32">
+          </div>
+    </div>
+
+    <script>
+        var cel = document.getElementById("input1");
+        var fah = document.getElementById("input2");
+        cel.addEventListener('input', function(){
+              let c = this.value;
+              let f = (c * 9/5) + 32;
+              if(!Number.isInteger(f)){
+                  f = f.toFixed(3);
+              }
+              fah.value = f;
+        });
+        fah.addEventListener('input', function(){
+            let f = this.value;
+            let c = (f - 32) * 5/9;
+            if(!Number.isInteger(c)){
+                c = c.toFixed(3);
+            }
+            cel.value = c;
+        });
+    </script>
+    
+</body>
+</html>
